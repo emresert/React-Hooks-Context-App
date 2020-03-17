@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 import App from '../src/components/root/App';
 import * as serviceWorker from './serviceWorker';
 import BookContextProvider from './contexts/BookContext';
