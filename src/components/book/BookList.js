@@ -1,12 +1,11 @@
 import React, {useContext} from 'react';
-import {BooksDetails} from '../book/BookDetails';
 import { BookContext } from '../../contexts/BookContext';
+import BookDetails from './BookDetails';
 
 
 const BookList = (props) => {
     const {books} = useContext(BookContext);
-
-    
+   
     const emptyBooks = ()=>{
         return (
             <div className="empty">
@@ -20,10 +19,13 @@ const BookList = (props) => {
         return (
             <div className="book-list">
                 <ul>
+                    
                     {books.map(book=>{
                         return (
-                            <BooksDetails books={books} key={books.id}></BooksDetails>
+                            
+                            <BookDetails book={book} key={book.id}></BookDetails>
                         )
+                       
                     })}
                     
                 </ul>
@@ -31,8 +33,8 @@ const BookList = (props) => {
         )
     }
     
-
- return books.length>0?emptyBooks:notEmptyBooks
+    // it does not work. I think error is here
+    return books.length > 0 ? notEmptyBooks() : emptyBooks()
      
 }
  
